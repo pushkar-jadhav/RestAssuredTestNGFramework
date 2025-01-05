@@ -42,7 +42,9 @@ public class TokenManager {
         formParameters.put("refresh_token", ConfigLoader.getConfigLoader().getRefreshToken());
         formParameters.put("client_id",ConfigLoader.getConfigLoader().getClientId());
         formParameters.put("client_secret",ConfigLoader.getConfigLoader().getClientSecret());
+
         Response response = RestResource.postAccessToken(formParameters);
+
         if(response.statusCode()!=200)
         {
             throw new RuntimeException("Failed to renew access token");
